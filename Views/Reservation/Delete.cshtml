@@ -1,0 +1,51 @@
+﻿@model RestaurantReservationSystem.Models.ReservationModel
+
+@{
+    ViewData["Title"] = "Delete Reservation";
+}
+<div id="content" style="height: 80vh;">
+<h1>Delete Reservation</h1>
+
+<h3 class="text-danger">Are you sure you want to delete this?</h3>
+<div>
+ 
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.contactNo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.contactNo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.pax)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.pax)
+        </dd>
+         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.reservedDateTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.reservedDateTime)
+        </dd>
+         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.timeSlot)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.timeSlot)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a class="btn btn-warning" asp-action="Index">Cancel</a>
+    </form>
+</div>
+</div>

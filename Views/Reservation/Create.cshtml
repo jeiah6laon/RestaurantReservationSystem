@@ -1,0 +1,86 @@
+﻿@model RestaurantReservationSystem.Models.ReservationModel
+
+@{
+    ViewData["Title"] = "Create Reservation";
+}
+
+<div id="content" style="height: 100vh;">
+<h1>Create Reservation</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="contactNo" class="control-label"></label>
+                <input asp-for="contactNo" class="form-control" placeholder="09XXXXXXXXX" maxlength="11"/>
+                <span asp-validation-for="contactNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pax" class="control-label"></label>
+                <input asp-for="pax" class="form-control" max="50"/>
+                <span asp-validation-for="pax" class="text-danger"></span>
+            </div>
+
+              <div class="form-group">
+                <label asp-for="reservedDateTime" class="control-label"></label>         
+            <input asp-for="reservedDateTime" class="form-control" min="@DateTime.Today.AddDays(1).ToString("yyyy-MM-dd")"/>
+                <span asp-validation-for="reservedDateTime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="timeSlot" class="control-label"></label>      
+            <select asp-for="timeSlot" class="form-control">
+	                <option value="0">9 AM - 10AM</option>
+                    <option value="1">10 AM - 11 AM</option>
+                    <option value="2">11 AM - 12 PM</option>
+                    <option value="3">12 PM - 1 PM</option>
+                    <option value="4">1 PM - 2 PM</option>
+                    <option value="5">2 PM - 3 PM</option>
+                    <option value="6">3 PM - 4 PM</option>
+                    <option value="7">4 PM - 5 PM</option>
+                    <option value="8">5 PM - 6 PM</option>
+                    <option value="9">6 PM - 7 PM</option>
+                    <option value="10">7 PM - 8 PM</option>
+            </select>
+            <span asp-validation-for="timeSlot" class="text-danger"></span>
+            </div>
+<!--
+             <div class="form-group">
+                <label asp-for="reservedDate" class="control-label"></label>         
+            <input type="date" asp-for="reservedDate" class="form-control" min="@DateTime.Today.AddDays(1).ToString("yyyy-MM-dd")"/>
+                <span asp-validation-for="reservedDate" class="text-danger"></span>
+            </div>
+
+                        <div class="form-group">
+                <label asp-for="startTime" class="control-label"></label>         
+            <input type="time" asp-for="startTime" class="form-control"/>
+                <span asp-validation-for="startTime" class="text-danger"></span>
+            </div>
+                             <div class="form-group">
+                <label asp-for="endTime" class="control-label"></label>         
+            <input type="time" asp-for="endTime" class="form-control"/>
+                <span asp-validation-for="endTime" class="text-danger"></span>
+            </div>   
+            -->
+            <br />
+            <div class="form-group">
+                <p class="text-danger">NOTE: Please review your details before submission.</p>
+                <input type="submit" value="Create" class="btn btn-success"/>
+             <a class="btn btn-warning" asp-controller="Home" asp-action="Index">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

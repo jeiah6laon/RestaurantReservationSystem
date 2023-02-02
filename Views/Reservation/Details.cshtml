@@ -1,0 +1,48 @@
+﻿@model RestaurantReservationSystem.Models.ReservationModel
+
+@{
+    ViewData["Title"] = "Reservation Details";
+}
+
+<div id="content" style="height: 80vh;">
+<h1>Reservation Details</h1>
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.contactNo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.contactNo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.pax)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.pax)
+        </dd>
+         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.reservedDateTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.reservedDateTime)
+        </dd>
+         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.timeSlot)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.timeSlot)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-info" asp-action="Edit" asp-route-id="@Model?.id">Edit</a>
+    <a class="btn btn-outline-info" asp-action="Index">Back to List</a>
+</div>
+</div>
